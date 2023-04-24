@@ -1,16 +1,4 @@
 const express = require('express')
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
-const express = require('express')
 const cors = require('cors')
 
 const app = express()
@@ -18,57 +6,40 @@ app.use(cors())
 
 const port = 3000
 
-const myJars = [
+const myArt = [
   {
     id: '001',
-    artist: 'Abby B'
-    clay: 'reclaim',
-    glaze: 'ben gareen',
-    fire: 'high',
-    cone: '6',
+    student: 'E Taylor',
+    class: 'BW-AII',
+    clay: 'little loafers',
+    glaze: 'clear',
   },
   {
     id: '002',
-    artist: 'Susan H'
-    clay: 'little loafers',
-    glaze: 'clear',
-    fire: 'high',
-    cone: '8',
+    student: 'E Hopper',
+    class: 'BW-CII',
+    clay: 'speckled',
+    glaze: 'ben gareen',
   },
   {
     id: '003',
-    artist: 'john f'
+    student: 'S Hughes',
+    class: 'AW-C',
     clay: 'porcelain',
     glaze: 'celedon',
-    fire: 'gas',
-    cone: '10',
-  },
-  {
-    id: '',
-    clay: '',
-    glaze: '',
-    fire: '',
-    cone: '',
-  },
-  {
-    id: '',
-    clay: '',
-    glaze: '',
-    fire: '',
-    cone: '',
   },
 ]
 
-app.get('/phone/:id', (req, res) => {
-  const phoneId = req.params.id
+app.get('/art/:id', (req, res) => {
+  const artId = req.params.id
 
   // Look through my phones, for the phone with the correct id
-  const phone = myPhones.find((phone) => phone.id === phoneId)
+  const art = myPhones.find((art) => art.id === artId)
 
-  if (!phone) {
+  if (!art) {
     return res.send('no phone found')
   }
-  res.send(phone)
+  res.send(art)
 })
 
 app.listen(port, () => {
